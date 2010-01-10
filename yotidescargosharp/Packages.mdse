@@ -1,0 +1,32 @@
+<CombineEntry name="Packages" fileversion="2.0" ctype="PackagingProject">
+  <Packages>
+    <Package name="MonoDevelop Project Model fuentes">
+      <Builder rootEntry="yotidescargosharp.mds" targetFile="yotidescargosharp-mds.tar.gz" format="MonoDevelop.Projects.MonoDevelopFileFormat" ctype="SourcesZipPackageBuilder">
+        <ChildEntries>
+          <Entry>yotidescargosharp/yotidescargosharp.mdp</Entry>
+        </ChildEntries>
+      </Builder>
+    </Package>
+    <Package name="Linux binarios">
+      <Builder rootEntry="yotidescargosharp.mds" targetFile="yotidescargosharp-linux.tar.gz" platform="Linux" ctype="BinariesZipPackageBuilder">
+        <ChildEntries>
+          <Entry>yotidescargosharp/yotidescargosharp.mdp</Entry>
+        </ChildEntries>
+      </Builder>
+    </Package>
+    <Package name="Windows binarios">
+      <Builder rootEntry="yotidescargosharp.mds" targetFile="yotidescargosharp-windows.tar.gz" platform="Windows" ctype="BinariesZipPackageBuilder">
+        <ChildEntries>
+          <Entry>yotidescargosharp/yotidescargosharp.mdp</Entry>
+        </ChildEntries>
+      </Builder>
+    </Package>
+    <Package name="Tarball">
+      <Builder rootEntry="yotidescargosharp.mds" TargetDirectory="/home/manuelinux/programas/mono/yotidescargosharp/yotidescargosharp" DefaultConfiguration="Debug" ctype="TarballDeployTarget">
+        <ChildEntries>
+          <Entry>yotidescargosharp/yotidescargosharp.mdp</Entry>
+        </ChildEntries>
+      </Builder>
+    </Package>
+  </Packages>
+</CombineEntry>
