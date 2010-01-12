@@ -1,0 +1,17 @@
+﻿<UserCombinePreferences version="1.0" filename="/home/manuelinux/Yotidescargo/yotidescargosharp/yotidescargosharp.mds">
+  <Files>
+    <File name="Bienvenido" />
+  </Files>
+  <Views>
+    <ViewMemento id="ProjectPad">
+      <Node expanded="True" />
+    </ViewMemento>
+    <ViewMemento id="ClassPad">
+      <Node expanded="True" />
+    </ViewMemento>
+  </Views>
+  <Properties>
+    <Property key="ActiveWindow" value="Bienvenido" />
+    <Property key="ActiveConfiguration" value="Debug" />
+  </Properties>
+</UserCombinePreferences>

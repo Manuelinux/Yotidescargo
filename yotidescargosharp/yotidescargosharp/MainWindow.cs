@@ -6,8 +6,12 @@
 using System;
 using Gtk;
 using System.Diagnostics;
+using System.Threading;
+
 public partial class MainWindow: Gtk.Window
 {	
+	public String url;
+	public String path;
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
@@ -36,7 +40,14 @@ public partial class MainWindow: Gtk.Window
 				md.Destroy();
 			}
 			else
-				downloadStart();
+			{
+				url=txturl.Text;
+				path=txtpath.CurrentFolder+"/"+txtname.Text;
+				Thread down = new Thread(downloadStart);
+				down.Start();
+				
+			}
+			
 		}
 		
 	}
@@ -44,17 +55,35 @@ public partial class MainWindow: Gtk.Window
 	{
 		Process download = new Process();
 		download.StartInfo.FileName="youtube-dl";
-		download.StartInfo.Arguments="-o "+ txtpath.CurrentFolder+"/"+txtname.Text+".flv "+txturl.Text;
-		MessageDialog md = new MessageDialog(this,DialogFlags.Modal, MessageType.Error, ButtonsType.Close, "I'll be back");
-		int result=md.Run();
-		md.Destroy();
-		this.Hide();
+		download.StartInfo.Arguments="-o "+path+".flv "+txturl.Text;
+		lblstatus.Text="Downloading Video";
+		System.Threading.Thread.Sleep(100);
 		download.Start();
 		while(!download.HasExited);
-		this.Show();
+		if(chkavi.Active)
+		{
+			Thread avi = new Thread(convertToAvi);
+			avi.Start();
+		}
+		else
+		{
+		lblstatus.Text="Ready";
 		txturl.Text="";
 		txtname.Text="";
 		txturl.GrabFocus();
-		
+		}
+	}
+	public void convertToAvi()
+	{
+		Process convertavi = new Process();
+		convertavi.StartInfo.FileName="ffmpeg";
+		convertavi.StartInfo.Arguments="-i "+path+".flv "+path+".mpg";
+		lblstatus.Text="Converting to AVI";
+		convertavi.Start();
+		while(!convertavi.HasExited);
+		lblstatus.Text="Ready";
+		txturl.Text="";
+		txtname.Text="";
+		txturl.GrabFocus();
 	}
 }

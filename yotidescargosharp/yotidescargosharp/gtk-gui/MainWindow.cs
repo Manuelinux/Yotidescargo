@@ -54,7 +54,7 @@ public partial class MainWindow {
     
     private Gtk.HSeparator hseparator1;
     
-    private Gtk.HSeparator hseparator2;
+    private Gtk.Label lblstatus;
     
     private Gtk.HBox hbox8;
     
@@ -245,11 +245,14 @@ public partial class MainWindow {
         Gtk.Box.BoxChild w19 = ((Gtk.Box.BoxChild)(this.hbox7[this.hseparator1]));
         w19.Position = 0;
         // Container child hbox7.Gtk.Box+BoxChild
-        this.hseparator2 = new Gtk.HSeparator();
-        this.hseparator2.Name = "hseparator2";
-        this.hbox7.Add(this.hseparator2);
-        Gtk.Box.BoxChild w20 = ((Gtk.Box.BoxChild)(this.hbox7[this.hseparator2]));
+        this.lblstatus = new Gtk.Label();
+        this.lblstatus.Name = "lblstatus";
+        this.lblstatus.LabelProp = "";
+        this.hbox7.Add(this.lblstatus);
+        Gtk.Box.BoxChild w20 = ((Gtk.Box.BoxChild)(this.hbox7[this.lblstatus]));
         w20.Position = 1;
+        w20.Expand = false;
+        w20.Fill = false;
         // Container child hbox7.Gtk.Box+BoxChild
         this.hbox8 = new Gtk.HBox();
         this.hbox8.Name = "hbox8";
@@ -280,7 +283,7 @@ public partial class MainWindow {
             this.Child.ShowAll();
         }
         this.DefaultWidth = 395;
-        this.DefaultHeight = 168;
+        this.DefaultHeight = 169;
         this.Show();
         this.DeleteEvent += new Gtk.DeleteEventHandler(this.OnDeleteEvent);
         this.btnok.Clicked += new System.EventHandler(this.OnBtnokClicked);
